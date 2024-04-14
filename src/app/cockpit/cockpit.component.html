@@ -8,7 +8,9 @@
     <!-- two way data binding -->
     <!-- {{newServerName}} -->
     <label>Server Content</label>
-    <input type="text" class="form-control" [(ngModel)]="newServerContent">
+    <!-- getting access to the template and DOM with @ViewChild -->
+
+    <input type="text" class="form-control" #serverContentInput>
     <label for="serverType">Server Type</label>
     <select id="serverType" name="serverType" class="form-control" [(ngModel)]="newServerType">
       <option value="server" selected>Server</option>
