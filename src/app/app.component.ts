@@ -1,22 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  serverElements = [];
-  newServerName = '';
-  newServerContent = '';
-  newServerType = '';
+export class AppComponent implements OnInit{
+  serverElements = [{type:'server',name:'Test Server',content:'Just a Test!!'}];
 
-  onAddServer() {
+  constructor(){
+
+  }
+
+  ngOnInit(): void {
+    
+  }
+
+  onServerAdded(serverData : {serverName:string, serverContent:string, serverType:string}){
     this.serverElements.push({
-      type: this.newServerType,
-      name: this.newServerName,
-      content: this.newServerContent
-    });
-    console.log('Server Elements:', this.serverElements);
+      type: serverData.serverType,
+      name: serverData.serverName,
+      content: serverData.serverContent
+
+    })
+
   }
 }
