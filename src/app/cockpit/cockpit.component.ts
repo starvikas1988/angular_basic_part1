@@ -7,7 +7,7 @@ import { Component, OnInit ,EventEmitter,Output} from '@angular/core';
 })
 export class CockpitComponent implements OnInit{
   @Output() serverCreated = new EventEmitter <{serverName: string, serverContent: string, serverType: string}>();
-  newServerName = '';
+ // newServerName = '';
   newServerContent = '';
   newServerType = '';
 
@@ -19,9 +19,10 @@ export class CockpitComponent implements OnInit{
     
   }
 
-  onAddServer() {
+  onAddServer(nameInput) {
+    //console.log(nameInput.value);
     this.serverCreated.emit({
-      serverName : this.newServerName,
+      serverName : nameInput.value,
       serverContent: this.newServerContent,
       serverType: this.newServerType
     });
